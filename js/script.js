@@ -119,7 +119,7 @@ let navigateWebring = () => {
   window.location.href = window.webringData.sites[newIndex].website;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+function init() {
   if (window.location.hash.includes("?nav=")) {
     navigateWebring();
   }
@@ -147,4 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mobileInput) handleUrlFragment(mobileInput);
   });
   window.addEventListener("hashchange", navigateWebring);
-});
+}
+
+// Run immediately if DOM is ready, otherwise wait for it
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}

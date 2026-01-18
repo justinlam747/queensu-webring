@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="../css/output.css" rel="stylesheet" />
+  <link href="./css/output.css" rel="stylesheet" />
 
   <!-- prevent visible alpinejs page reloading -->
   <style>
@@ -39,26 +39,33 @@
   <!-- JS sources -->
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <!-- ↓↓↓ OPEN THIS GUY UP ↓↓↓ -->
-  <script>
-    window.webringData = {
-      "sites": [
-        {
-          "name": "Justin Gu",
-          "year": 2026,
-          "website": "https://justin.run"
-        },
-        {
-          "name": "Jaiden Ratti",
-          "year": 2026,
-          "website": "https://www.jaidenratti.com/"
-        },
-      ]
-    };
+
+  <!-- Get program from URL hash -->
+  <script type="module">
+    console.log("Full URL:", window.location.href);
+    console.log("Hash:", window.location.hash);
+    
+    const program = window.location.hash.slice(1) || "cs";
+    console.log("Loading program:", program);
+
+    try {
+      const response = await fetch(`./sites/${program}.json`);
+      console.log("Fetch response:", response.status, response.ok);
+      if (!response.ok) throw new Error(`Failed to load ${program}.json`);
+      const sites = await response.json();
+      console.log("Loaded sites:", sites);
+
+      window.webringData = { sites: sites };
+      console.log("webringData set:", window.webringData);
+
+      await import("./js/script.js");
+      console.log("script.js imported");
+    } catch (error) {
+      console.error("Error loading webring data:", error);
+      document.getElementById("webring-list").innerHTML =
+        `<p class="text-burgundy-500">Failed to load webring data for "${program}"</p>`;
+    }
   </script>
-  <!-- ↑↑↑ -->
-  <script src="../js/helpers.js" type="module"></script>
-  <script src="../js/script.js" type="module"></script>
 </head>
 
 <body class="bg-mustard-100">
