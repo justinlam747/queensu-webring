@@ -118,8 +118,7 @@ function init() {
   if (window.location.hash.includes("?nav=")) {
     navigateWebring();
   }
-  const desktopInput = document.getElementById("search");
-  const mobileInput = document.getElementById("search-mobile");
+  const searchInput = document.getElementById("search");
 
   const program = window.location.hash.slice(1) || "cs";
   const title = document.getElementById("webring-title");
@@ -129,14 +128,8 @@ function init() {
 
   createWebringList(window.webringData.sites.map((_, i) => i));
 
-  if (desktopInput) {
-    desktopInput.addEventListener("input", (e) => {
-      filterWebring(e.target.value);
-    });
-  }
-
-  if (mobileInput) {
-    mobileInput.addEventListener("input", (e) => {
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
       filterWebring(e.target.value);
     });
   }

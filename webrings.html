@@ -11,6 +11,9 @@
     [x-cloak] {
       display: none;
     }
+    .btn-hover:hover {
+      text-decoration: underline;
+    }
   </style>
 
   <!-- SEO Meta Tags -->
@@ -58,16 +61,14 @@
 </head>
 
 <body class="bg-black-900">
-  <main class="text-white px-2 py-6 sm:p-6 sm:min-h-[100vh] sm:w-[100vw] overflow-x-hidden flex flex-col items-center justify-center">
-    <h1 class="hidden sm:block mb-4 w-full sm:w-3/5 lg:w-2/5 py-6 mx-auto text-2xl font-monospace italic font-bold text-white" id="webring-title">QUEENSU-WEBRING</h1>
+  <main class="text-white px-4 py-6 sm:p-6 min-h-[100vh] w-full overflow-x-hidden flex flex-col items-center justify-center">
+    <h1 class="mb-4 w-full sm:w-3/5 lg:w-2/5 py-4 mx-auto text-2xl font-monospace italic font-bold text-white" id="webring-title">QUEENSU-WEBRING</h1>
 
-    <div class="sm:hidden fixed top-6 left-0 w-full px-2">
-      <input type="text" id="search-mobile" placeholder="Search members by name, year or url..."
-        class=" w-full font-monospace px-4 py-2 border border-black-900 rounded-none" />
-    </div>
-    <div class="hidden sm:block mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto">
+    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem;">
+
+    <div class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto">
       <input type="text" id="search" placeholder="Search members by name, year or url..."
-        class=" w-full font-monospace px-4 py-2 border border-black-900 rounded-none" />
+        class="w-full font-monospace px-4 py-2 border border-white rounded-none" />
     </div>
 
     <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto py-2">
@@ -78,11 +79,13 @@
       </div>
     </div>
 
-    <h1 class="hidden sm:block mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto text-medium font-monospace italic font-bold text-white" id="webring-title">This webring consists of 2 members. It was last updated on January 24, 2026.</h1>
+    <p class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto text-base font-monospace italic text-white" id="webring-info">This webring consists of # members. It was last updated on January 24, 2026.</p>
+
+    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-top: 1rem;">
 
     <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto">
-      <div> 
-        <div class="grid grid-cols-12 sm:grid-cols-6 gap-2 sm:gap-4 mb-2 mt-16 sm:mt-4">
+      <div>
+        <div class="grid grid-cols-12 sm:grid-cols-6 gap-2 sm:gap-4 mb-2 mt-4">
           <span class="col-span-5 sm:col-span-2 text-left font-monospace text-white text-2xl italic font-bold">NAME</span>
           <span class="col-span-2 sm:col-span-1 text-right font-monospace text-white text-2xl italic font-bold">YEAR</span>
           <span class="col-span-1 sm:col-span-1"></span>
@@ -92,6 +95,8 @@
         </div>
       </div>
     </div>
+
+    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem;">
   </main>
 </body>
 
