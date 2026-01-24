@@ -61,17 +61,17 @@
 </head>
 
 <body class="bg-black-900">
-  <main class="text-white px-4 py-6 sm:p-6 min-h-[100vh] w-full overflow-x-hidden flex flex-col items-center justify-center">
-    <h1 class="mb-4 w-full sm:w-3/5 lg:w-2/5 py-4 mx-auto text-2xl font-monospace italic font-bold text-white" id="webring-title">QUEENSU-WEBRING</h1>
+  <main class="text-white px-4 py-6 sm:p-6 w-full flex flex-col items-center" style="height: 100vh; overflow: hidden;">
+    <h1 class="mb-4 w-full sm:w-3/5 lg:w-2/5 py-4 mx-auto text-2xl font-monospace italic font-bold text-white" style="flex-shrink: 0;" id="webring-title">QUEENSU-WEBRING</h1>
 
-    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem;">
+    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem; flex-shrink: 0;">
 
-    <div class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto">
+    <div class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto" style="flex-shrink: 0;">
       <input type="text" id="search" placeholder="Search members by name, year or url..."
         class="w-full font-monospace px-4 py-2 border border-white rounded-none" />
     </div>
 
-    <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto py-2">
+    <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto py-2" style="flex-shrink: 0;">
       <div class="flex flex-row" style="gap: .5rem;">
         <button onclick="window.open('https://github.com/AaronSu06/QU-Webring/issues/new', '_blank')" class="btn-hover w-full font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer;">Report Broken Link</button>
         <button onclick="window.open('https://github.com/AaronSu06/QU-Webring/pulls', '_blank')" class="btn-hover w-full font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer;">Join the Webring</button>
@@ -79,24 +79,24 @@
       </div>
     </div>
 
-    <p class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto text-base font-monospace italic text-white" id="webring-info">This webring consists of # members. It was last updated on January 24, 2026.</p>
+    <p class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto text-base font-monospace italic text-white" style="flex-shrink: 0;" id="webring-info">This webring consists of # members. It was last updated on January 24, 2026.</p>
 
-    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-top: 1rem;">
+    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-top: 1rem; flex-shrink: 0;">
 
-    <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto">
-      <div>
-        <div class="grid grid-cols-12 sm:grid-cols-6 gap-2 sm:gap-4 mb-2 mt-4">
+    <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto" style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden;">
+      <div style="display: flex; flex-direction: column; height: 100%;">
+        <div class="grid grid-cols-12 sm:grid-cols-6 gap-2 sm:gap-4 mb-2 mt-4" style="flex-shrink: 0;">
           <span class="col-span-5 sm:col-span-2 text-left font-monospace text-white text-2xl italic font-bold">NAME</span>
           <span class="col-span-2 sm:col-span-1 text-right font-monospace text-white text-2xl italic font-bold">YEAR</span>
           <span class="col-span-1 sm:col-span-1"></span>
           <span class="col-span-4 sm:col-span-2 text-left font-monospace text-white text-2xl italic font-bold">URL</span>
         </div>
-        <div class="w-full flex-flex-col space-y-1 py-6 text-sm sm:text-base mb-16 sm:mb-0" id="webring-list">
+        <div class="w-full flex flex-col space-y-1 py-6 text-sm sm:text-base" style="flex: 1; overflow-y: auto;" id="webring-list">
         </div>
       </div>
     </div>
 
-    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem;">
+    <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem; flex-shrink: 0;">
   </main>
 </body>
 
