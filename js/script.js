@@ -125,6 +125,10 @@ function init() {
   if (title) {
     title.textContent = `QUEENSU-WEBRING/${program.toUpperCase()}`;
   }
+  const logo = document.getElementById("webring-logo");
+  if (logo) {
+    logo.src = `./assets/icons/${program}/icon-white.png`;
+  }
 
   createWebringList(window.webringData.sites.map((_, i) => i));
 

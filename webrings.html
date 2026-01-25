@@ -60,10 +60,19 @@
   </script>
 </head>
 
-<body class="bg-black-900">
+<body style="background-color: #818181;">
   <main class="text-white px-4 py-6 sm:p-6 w-full flex flex-col items-center" style="height: 100vh; overflow: hidden;">
-    <h1 class="mb-4 w-full sm:w-3/5 lg:w-2/5 py-4 mx-auto text-2xl font-monospace italic font-bold text-white" style="flex-shrink: 0;" id="webring-title">QUEENSU-WEBRING</h1>
 
+    <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto" style="flex-shrink: 0;">
+      <div class="flex flex-row justify-between items-center w-full">
+        <div class="flex flex-row items-center gap-2">
+          <img src="" alt="Logo" class="rounded-full" id="webring-logo" style="width: 4rem; height: 4rem;">
+          <h1 class="text-2xl font-monospace italic font-bold text-white" id="webring-title">QUEENSU-WEBRING</h1>
+        </div>
+        <button onclick="window.location.href = 'index.html'" class="btn-hover text-2xl font-monospace italic font-bold text-white whitespace-nowrap" style="cursor: pointer;">←BACK</button>
+      </div>
+    </div>
+    
     <hr class="w-full sm:w-3/5 lg:w-2/5 mx-auto border-white" style="margin-bottom: 1rem; flex-shrink: 0;">
 
     <div class="mb-4 w-full sm:w-3/5 lg:w-2/5 mx-auto" style="flex-shrink: 0;">
@@ -72,10 +81,10 @@
     </div>
 
     <div class="w-full sm:w-3/5 lg:w-2/5 mx-auto py-2" style="flex-shrink: 0;">
-      <div class="flex flex-row" style="gap: .5rem;">
-        <button onclick="window.open('https://github.com/AaronSu06/QU-Webring/issues/new', '_blank')" class="btn-hover w-full font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer;">Report Broken Link</button>
-        <button onclick="window.open('https://github.com/AaronSu06/QU-Webring/pulls', '_blank')" class="btn-hover w-full font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer;">Join the Webring</button>
-        <button onclick="window.location.href = window.webringData.sites[Math.floor(Math.random() * window.webringData.sites.length)].website" class="btn-hover w-full font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer;">Random</button>
+      <div class="flex flex-row flex-wrap" style="gap: 0.5rem;">
+        <button onclick="window.open('https://github.com/AaronSu06/QU-Webring/issues/new', '_blank')" class="btn-hover font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer; flex: 1 1 150px;">Report Broken Link</button>
+        <button onclick="window.open('https://github.com/AaronSu06/QU-Webring/pulls', '_blank')" class="btn-hover font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer; flex: 1 1 150px;">Join the Webring</button>
+        <button onclick="window.location.href = window.webringData.sites[Math.floor(Math.random() * window.webringData.sites.length)].website" class="btn-hover font-monospace px-4 py-2 border border-white rounded-none" style="cursor: pointer; flex: 1 1 150px;">Random</button>
       </div>
     </div>
 
