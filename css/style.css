@@ -235,6 +235,20 @@ body.home-page p {
     text-align: left;
 }
 
+/* Ensure inline links in section copy are readable on dark background */
+.section a,
+.section a:visited {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.section a:hover,
+.section a:focus-visible {
+    color: #ffffff;
+    background: transparent;
+}
+
 .section p:last-child {
     margin-bottom: 0;
 }
