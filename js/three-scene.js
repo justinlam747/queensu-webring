@@ -172,29 +172,22 @@ if (containers.length) {
     scenes.forEach((entry) => entry.resize());
   };
 
-  // Cleanup function to dispose all Three.js resources
   const cleanup = () => {
-    // Cancel animation loop
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
       animationFrameId = null;
     }
 
-    // Remove event listeners
     window.removeEventListener("resize", handleResize);
 
-    // Dispose each scene's resources
     scenes.forEach((entry) => {
-      // Dispose renderer and release WebGL context
       entry.renderer.dispose();
       entry.renderer.forceContextLoss();
 
-      // Dispose line material
       if (entry.lineMaterial) {
         entry.lineMaterial.dispose();
       }
 
-      // Traverse scene and dispose all geometries and materials
       entry.scene.traverse((obj) => {
         if (obj.geometry) {
           obj.geometry.dispose();
@@ -209,14 +202,11 @@ if (containers.length) {
       });
     });
 
-    // Clear the scenes array
     scenes.length = 0;
 
-    // Clear model cache
     modelCache.clear();
   };
 
-  // Pause animation when page is hidden (BFCache, tab switch)
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       if (animationFrameId) {
@@ -228,10 +218,30 @@ if (containers.length) {
     }
   });
 
-  // Full cleanup when page is unloaded or entering BFCache
   window.addEventListener("pagehide", cleanup);
 
-  // Start animation and resize listener
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      window.scrollTo(0, 0);
+    }
+    if (event.persisted && scenes.length === 0) {
+      containers.forEach((container) => {
+        const oldCanvas = container.querySelector("canvas");
+        if (oldCanvas) {
+          oldCanvas.remove();
+        }
+        initScene(container).catch((error) => {
+          console.error("Failed to re-init Q model scene:", error);
+        });
+      });
+      setTimeout(() => {
+        if (scenes.length > 0 && !animationFrameId) {
+          animate();
+        }
+      }, 100);
+    }
+  });
+
   animate();
   window.addEventListener("resize", handleResize);
 }
