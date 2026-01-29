@@ -19,6 +19,13 @@
       window.__webringNavigating = true;
       document.documentElement.style.visibility = 'hidden';
 
+      setTimeout(function() {
+        if (window.__webringNavigating) {
+          document.body.innerHTML = '<p style="text-align:center;margin-top:2rem;font-family:monospace;color:#e6e6e6;">Redirecting...</p>';
+          document.documentElement.style.visibility = '';
+        }
+      }, 500);
+
       var parts = hash.split('?');
       var siteFragment = parts[0];
       var params = parts[1] ? new URLSearchParams(parts[1]) : null;
@@ -49,8 +56,10 @@
             var increment = navTrimmed === 'next' ? 1 : -1;
             var newIndex = (index + increment) % ring.sites.length;
             if (newIndex < 0) newIndex = ring.sites.length - 1;
+            document.body.innerHTML = '';
             window.location.replace(ring.sites[newIndex].website);
           } else {
+            document.body.innerHTML = '';
             window.location.replace('webrings.html#' + ring.ring);
           }
           return;
