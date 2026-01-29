@@ -12,7 +12,7 @@
       var hash = window.location.hash.slice(1);
       if (!hash) return;
 
-      var rings = ['cs', 'eng', 'artsci', 'bcom'];
+      var rings = ['cs', 'eng', 'other', 'bcom'];
 
       if (rings.includes(hash.split('?')[0])) return;
 
@@ -95,16 +95,12 @@
                 <div class="hero-actions" aria-label="Webring links">
                     <a class="hero-button" href="https://github.com/AaronSu06/queensu-webring" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a class="hero-button" href="mailto:queenswebring@gmail.com">Contact</a>
-                    <a class="hero-button" onclick="fetch('sites/cs.json').then(r=>r.json()).then(cs=>fetch('sites/artsci.json').then(r=>r.json()).then(artsci=>fetch('sites/eng.json').then(r=>r.json()).then(eng=>fetch('sites/bcom.json').then(r=>r.json()).then(bcom=>{const all=[...cs,...artsci,...eng,...bcom].filter(s=>s.website);if(all.length)window.location.href=all[Math.floor(Math.random()*all.length)].website}))))" style="cursor:pointer">Random</a>
+                    <a class="hero-button" onclick="fetch('sites/cs.json').then(r=>r.json()).then(cs=>fetch('sites/other.json').then(r=>r.json()).then(other=>fetch('sites/eng.json').then(r=>r.json()).then(eng=>fetch('sites/bcom.json').then(r=>r.json()).then(bcom=>{const all=[...cs,...other,...eng,...bcom].filter(s=>s.website);if(all.length)window.location.href=all[Math.floor(Math.random()*all.length)].website}))))" style="cursor:pointer">Random</a>
                 </div>  
                 <hr class="divider">
                 <p class="intro webring-intro">Select a program's webring to explore student websites!</p>
 
                 <div class="webrings">
-                    <a class="webring-card" href="webrings.html#artsci">
-                        <span class="webring-logo webring-logo--model" aria-hidden="true" data-qmodel="logo" data-model="assets/model/artsci_webring_logo.gltf" data-edge-angle="10"></span>
-                        <span class="webring-name">ART SCI WEBRING</span>
-                    </a>
                     <a class="webring-card" href="webrings.html#cs">
                         <span class="webring-logo webring-logo--model" aria-hidden="true" data-qmodel="logo" data-model="assets/model/cs_webring_logo.gltf" data-edge-angle="10"></span>
                         <span class="webring-name">CS WEBRING</span>
@@ -116,6 +112,10 @@
                     <a class="webring-card" href="webrings.html#bcom">
                         <span class="webring-logo webring-logo--model" aria-hidden="true" data-qmodel="logo" data-model="assets/model/bcom_webring_logo.gltf" data-edge-angle="10"></span>
                         <span class="webring-name">BCOM WEBRING</span>
+                    </a>
+                    <a class="webring-card" href="webrings.html#other">
+                      <span class="webring-logo webring-logo--model" aria-hidden="true" data-qmodel="logo" data-model="assets/model/other_webring_logo.gltf" data-edge-angle="10"></span>
+                      <span class="webring-name">OTHER FACULTY WEBRING</span>
                     </a>
                 </div>
 
